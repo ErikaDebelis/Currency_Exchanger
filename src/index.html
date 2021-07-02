@@ -1,21 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Journal</title>
+  <title>Currency Converter</title>
 </head>
 <body>
-
+  <div class="container">
+    <h1>Choose Your Currency:</h1>
+    <label for="currency">
+      <form id="currency-form" class="form-group">
+        <div class="form-group">
+          <label for="currency-form">Search by:</label>
+            <select id="currency-parameter" class="form-control">
+              <option value="EUR">Euros</option>
+              <option value="CLP">Chilean Pesos</option>
+              <option value="CAD">Canadian Dollar</option>
+              <option value="KHR">Cambodian riel</option>
+              <option value="GNF">Guinean Franc</option>
+              <option value="JPY">Yen</option>
+            </select>
+        </div>
+        <br>
+        <div class="col-auto">
+          <label for="amount" class="visually-hidden">dollar amount(USD)</label>
+          <input type="submit" class="form-control" id="dollarAmount" placeholder="USD">
+        </div>
+        <button type="submit" class="btn btn-indigo-500">SHOW ME THE MONEY</button>
+      </form>
+    </label>
+    <div class="showAmt"></div>
+    <div class="showErrors"></div>
+  </div>
 </body>
 </html>
-
-<!-- <h3>Enter three lengths to determine if they can make a triangle.</h3>
-<form id="triangle-checker-form">
-  <label for="length1">Enter a number:</label>
-  <input id="length1" type="number">
-  <label for="length2"">Enter a number:</label>
-  <input id="length2" type="number">
-  <label for="length3">Enter a number:</label>
-  <input id="length3" type="number">
-  <button type="submit">Submit</button>
-</form>
-<ul id="response"></ul> -->
