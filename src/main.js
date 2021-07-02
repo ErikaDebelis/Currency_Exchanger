@@ -29,7 +29,7 @@ async function makeApiCall(dollarAmt) {
 //added try and catch to async to catch errors 
 $(document).ready(function() {
   $('#currency-form').submit(function() {
-    const currency = $("#currency-parameter option:selected").val();
+    const currency = $("#currency option:selected").val();
     let usdAmt = $('#dollarAmount').val();
     event.preventDefault();
     Exchanger.getExchangeRate(currency, usdAmt)

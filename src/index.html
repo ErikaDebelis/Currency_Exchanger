@@ -12,7 +12,8 @@
           <form id="currency-form" class="form-group">
             <div class="form-group">
               <label for="currency-form">Convert US Dollars to:</label>
-                <select id="currency-parameter" class="form-control">
+                <select id="currency" class="form-control">
+                  <option selected></option>
                   <option value="EUR">Euros</option>
                   <option value="CLP">Chilean Pesos</option>
                   <option value="CAD">Canadian Dollar</option>
@@ -24,7 +25,7 @@
             <br>
             <div class="form-row">
               <div class="col-md-4">
-                <input type="text" class="form-control" id="dollarAmount" placeholder="$USD">
+                <input type="number" class="form-control" id="dollarAmt" placeholder="$USD">
               </div>
             <br>
             <button type="submit" class="btn btn-info">SHOW ME THE MONEY</button>
