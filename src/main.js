@@ -9,7 +9,7 @@ function getElements(response) {
     console.log(response.result);
     $('.showErrors').text(`There was an error: ${response}`);
   } else if (response.result === "success") {
-    $('#showRate').text(`${response["conversion_result"]}`);
+    $('#showRate').text(`parseInt(response["conversion_result"])`);
     console.log(getElements);  
   } else {
     $('.showErrors').text(`There was an error: ${response["error-type"]}`);
