@@ -2,7 +2,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import Exchanger from './js/exchange';
+import Exchanger from './js/exchange.js';
 
 function getElements(response, dollarAmt) {
   if (response.result ==="error") {
@@ -14,14 +14,27 @@ function getElements(response, dollarAmt) {
     $('.showErrors').text(`There was an error: ${response}`);
   }
 }
-async function makeApiCall(choice) {
+async function makeApiCall(currency) {
   try{
-    const response = await Exchanger.getExchangeRate(choice);
+    const response = await Exchanger.getExchangeRate(currency);
     console.log("makeApiCall", response.conversion_rates);
     getElements(response.conversion_rates);
   }
   catch(err) {
+    $('.showErrors').text(`There was an error`);
     console.log("await failed", err);
   }
 }
 //added try and catch to async to catch errors 
+$(document).ready(function() {
+  $('#currency-form').click(function() {
+    const currency = $("#currency-parameter option:selected").val();
+    let dollarAmt = $('#dollarAmount').val();
+    Exchanger.getExchangeRate(currency, dollarAmt)
+      .then(function(response) {
+        getElements(response, dollarAmt);
+        $(".showAmt").html(makeApiCall(dollarAmt));
+        $(".showErrors").text(`ERROR`);
+      });
+  });
+});

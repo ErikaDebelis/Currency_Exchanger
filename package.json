@@ -6,12 +6,11 @@
   "scripts": {
     "build": "webpack --mode=development",
     "start": "npm run build & webpack-dev-server --open --mode development",
-    "lint": "eslint src/*.js",
-    "test": "jest --coverage"
+    "lint": "eslint src/*.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Erika Debelis",
+  "license": "MIT, ISC",
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-transform-modules-commonjs": "^7.6.0",
