@@ -6,19 +6,21 @@ import Exchanger from './js/exchange.js';
 
 function getElements(response, dollarAmt) {
   if (response.result ==="error") {
+    console.log("result");
     $('.showErrors').text(`There was an error: ${response}`);
-  } else if (response.conversion_rates) {
+  } else if (response.conversion_result) {
     $('#showRate').text(`${response}: ${dollarAmt}`);
     console.log("getElements", response);  
   } else {
-    $('.showErrors').text(`There was an error: ${response}`);
+    $('.showErrors').text(`There was an error: ${response} $"error-type`);
+    console.log("error-type");
   }
 }
-async function makeApiCall(currency, dollarAmt) {
+async function makeApiCall(dollarAmt) {
   try{
-    const response = await Exchanger.getExchangeRate(currency);
-    console.log("makeApiCall", response.conversion_rates);
-    getElements(response.conversion_rates);
+    const response = await Exchanger.getExchangeRate(dollarAmt);
+    console.log("makeApiCall", response.conversion_result);
+    getElements(response.conversion_result);
   }
   catch(err) {
     $('.showErrors').text(`There was an error`);
@@ -27,9 +29,10 @@ async function makeApiCall(currency, dollarAmt) {
 }
 //added try and catch to async to catch errors 
 $(document).ready(function() {
-  $('#currency-form').click(function() {
+  $('#currency-form').submit(function() {
     const currency = $("#currency-parameter option:selected").val();
     let dollarAmt = $('#dollarAmount').val();
+    event.preventDefault();
     Exchanger.getExchangeRate(currency, dollarAmt)
       .then(function(response) {
         getElements(response, dollarAmt);
