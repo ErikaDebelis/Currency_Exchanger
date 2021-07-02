@@ -14,7 +14,7 @@ function getElements(response, dollarAmt) {
     $('.showErrors').text(`There was an error: ${response}`);
   }
 }
-async function makeApiCall(currency) {
+async function makeApiCall(currency, dollarAmt) {
   try{
     const response = await Exchanger.getExchangeRate(currency);
     console.log("makeApiCall", response.conversion_rates);

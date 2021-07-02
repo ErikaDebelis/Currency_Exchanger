@@ -5,32 +5,36 @@
 </head>
 <body>
   <div class="container">
-    <h1>Choose Your Currency:</h1>
-    <label for="currency">
-      <form id="currency-form" class="form-group">
-        <div class="form-group">
-          <label for="currency-form">Search by:</label>
-            <select id="currency-parameter" class="form-control">
-              <option value="EUR">Euros</option>
-              <option value="CLP">Chilean Pesos</option>
-              <option value="CAD">Canadian Dollar</option>
-              <option value="KHR">Cambodian riel</option>
-              <option value="GNF">Guinean Franc</option>
-              <option value="JPY">Yen</option>
-            </select>
-        </div>
-        <br>
-        <div class="form-row">
-          <div class="col-md-4">
-            <input type="text" class="form-control" id="dollarAmount" placeholder="USD">
-          </div>
-        <br>
-        <button type="submit" class="btn btn-info">SHOW ME THE MONEY</button>
-        </div>
-      </form>
-    </label>
-    <div class="showAmt"></div>
-    <div class="showErrors"></div>
+    <div class="jumbotron">
+      <div class="centered-text">
+        <h1>Choose Your Currency:</h1>
+        <label for="currency">
+          <form id="currency-form" class="form-group">
+            <div class="form-group">
+              <label for="currency-form">Search by:</label>
+                <select id="currency-parameter" class="form-control">
+                  <option value="EUR">Euros</option>
+                  <option value="CLP">Chilean Pesos</option>
+                  <option value="CAD">Canadian Dollar</option>
+                  <option value="KHR">Cambodian riel</option>
+                  <option value="GNF">Guinean Franc</option>
+                  <option value="JPY">Yen</option>
+                </select>
+            </div>
+            <br>
+            <div class="form-row">
+              <div class="col-md-4">
+                <input type="text" class="form-control" id="dollarAmount" placeholder="USD">
+              </div>
+            <br>
+            <button type="submit" class="btn btn-info">SHOW ME THE MONEY</button>
+            </div>
+          </form>
+        </label>
+        <div class="showAmt"></div>
+        <div class="showErrors"></div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

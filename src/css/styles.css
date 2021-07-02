@@ -1,3 +1,17 @@
 body {
-
+  background-image: url("../assets/images/money.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: indigo;
+  font-size: 20pt;
+}
+.centered-text {
+  text-align: center;
+}
+.jumbotron {
+  background-image: url("../assets/images/jumbo-money.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
