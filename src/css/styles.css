@@ -15,3 +15,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
 }
+.blockquote, .blockquote-footer {
+  font-size: 12pt;
+}
