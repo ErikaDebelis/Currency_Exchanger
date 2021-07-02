@@ -5,22 +5,21 @@ import './css/styles.css';
 import Exchanger from './js/exchange.js';
 
 function getElements(response) {
-  if (response.result ==="error") {
+  if (response["result"] ==="error") {
     console.log(response.result);
     $('.showErrors').text(`There was an error: ${response}`);
-  } else if (response.conversion_result) {
-    $('#showRate').text(`${response.conversion_result}`);
+  } else if (response.result === "success") {
+    $('#showRate').text(`${response["conversion_result"]}`);
     console.log(getElements);  
   } else {
-    $('.showErrors').text(`There was an error: ${response.error-type}`);
-    console.log(response.error-type);
+    $('.showErrors').text(`There was an error: ${response["error-type"]}`);
   }
 }
 async function makeApiCall(dollarAmt) {
   try{
     const response = await Exchanger.getExchangeRate(dollarAmt);
-    console.log(makeApiCall, response.conversion_result);
-    getElements(response.conversion_result);
+    console.log(makeApiCall, response["conversion_result"]);
+    getElements(response["conversion_result"]);
   }
   catch(err) {
     $('.showErrors').text(`There was an error`);
