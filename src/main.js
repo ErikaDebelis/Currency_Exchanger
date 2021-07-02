@@ -30,12 +30,12 @@ async function makeApiCall(dollarAmt) {
 $(document).ready(function() {
   $('#currency-form').submit(function() {
     const currency = $("#currency-parameter option:selected").val();
-    let dollarAmt = $('#dollarAmount').val();
+    let usdAmt = $('#dollarAmount').val();
     event.preventDefault();
-    Exchanger.getExchangeRate(currency, dollarAmt)
+    Exchanger.getExchangeRate(currency, usdAmt)
       .then(function(response) {
-        getElements(response, dollarAmt);
-        $(".showAmt").html(makeApiCall(dollarAmt));
+        getElements(response, usdAmt);
+        $(".showAmt").html(makeApiCall(usdAmt));
         $(".showErrors").text(`ERROR`);
       });
   });
