@@ -5,33 +5,31 @@ import './css/styles.css';
 import Exchanger from './js/exchange.js';
 
 function getElements(response) {
-  if (response["result"] ==="error") {
-    $('.showErrors').text(`There was an error: ${response}`);
-  } else if (response.result === "success") {
-    $('#showRate').text(`parseInt(response["conversion_result"])`);
+  if (response.result) {
+    $('#showRate').text(`response.conversion_result`);
+  } else if (response["result"] === "error") {
+    $('.showErrors').text(`There was an error: ${response.result}`); 
   } else {
     $('.showErrors').text(`There was an error: ${response["error-type"]}`);
   }
 }
-async function makeApiCall(dollarAmt) {
-  try{
-    const response = await Exchanger.getExchangeRate(dollarAmt);
-    getElements(response["conversion_result"]);
+async function makeApiCall(currency, dollarAmt) {
+  try {
+    const response = await Exchanger.getExchangeRate(currency, dollarAmt);
+    getElements(response);
   }
-  catch(err) {
+  catch (err) {
     $('.showErrors').text(`There was an error`);
   }
 }
-$(document).ready(function() {
-  $('#currency-form').submit(function() {
-    const currency = $("#currency option:selected").val();
-    let usdAmt = $('#dollarAmount').val();
-    event.preventDefault();
-    Exchanger.getExchangeRate(currency, usdAmt)
-      .then(function(response) {
-        getElements(response, usdAmt);
-        $(".showAmt").html(makeApiCall(usdAmt));
-        $(".showErrors").text(`ERROR`);
-      });
-  });
+$('#currency-form').submit(function () {
+  const currency = $("#currency option:selected").val();
+  let dollarAmt = $('#dollarAmount').val();
+  event.preventDefault();
+  Exchanger.getExchangeRate(currency, dollarAmt)
+    .then(function (response) {
+      getElements(response);
+      $(".showAmt").html(makeApiCall(dollarAmt));
+      $(".showErrors").text(`ERROR`);
+    });
 });
