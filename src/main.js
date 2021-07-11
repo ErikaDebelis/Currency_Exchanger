@@ -22,14 +22,19 @@ async function makeApiCall(currency, dollarAmt) {
     $('.showErrors').text(`There was an error`);
   }
 }
+
 $('#currency-form').submit(function () {
   const currency = $("#currency option:selected").val();
   let dollarAmt = $('#dollarAmount').val();
+  console.log(dollarAmt);
   event.preventDefault();
+
   Exchanger.getExchangeRate(currency, dollarAmt)
+
     .then(function (response) {
       getElements(response);
-      $(".showAmt").html(makeApiCall(dollarAmt));
+      $(".showAmt").html(makeApiCall(currency, dollarAmt));
       $(".showErrors").text(`ERROR`);
     });
+
 });
