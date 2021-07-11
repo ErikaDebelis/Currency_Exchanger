@@ -25,7 +25,7 @@ async function makeApiCall(currency, dollarAmt) {
 
 $('#currency-form').submit(function () {
   const currency = $("#currency option:selected").val();
-  let dollarAmt = $('#dollarAmount').val();
+  let dollarAmt = $('#dollarAmt').val();
   console.log(dollarAmt);
   event.preventDefault();
 
