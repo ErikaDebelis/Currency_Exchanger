@@ -3,7 +3,7 @@ export default class Exchanger {
     try {
       const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/${currency}/${dollarAmt}`);
       if (!response.ok) {
-        throw Error(response.statusTextError);
+        throw Error(response.result);
       }
       return response.json();
     } catch (error) {
