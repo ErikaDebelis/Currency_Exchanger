@@ -7,7 +7,7 @@ export default class Exchanger {
       }
       return response.json();
     } catch (error) {
-      return error.message;
+      return error;
     }
   }
 }
