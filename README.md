@@ -1,6 +1,6 @@
 # Currency Exchanger
 
-#### A user should be able to type in an amount (in U.S. dollars) and then choose which currency it should be converted to EUR, JPY, CLP, KHR, GNF, and CAD. 
+#### A user should be able to type in an amount (in U.S. dollars) and then choose which currency it should be converted to by selecting one from the dropdown form. 
 
 #### Authored by Erika Debelis
 
