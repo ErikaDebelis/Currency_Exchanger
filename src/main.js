@@ -14,7 +14,7 @@ function getElements(response) {
     const rate = response.conversion_result.toFixed(2);
     $('.showAmt').text(`${rate} ${response.target_code}`);
   } else if (response["result"] === "error") {
-    $('.showErrors').text(`There was an error: ${response["error-type"]}`); 
+    $('.showErrors').text(`There was an error: ${response["error-type"]}`);
     if ( response["error-type"] === "unsupported-code") {
       $('.showErrors').text(`There was an error: Currency in question does not exist`);
     }
